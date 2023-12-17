@@ -19,8 +19,8 @@
     <None Remove="Assets\king_white.png" />
     <None Remove="Assets\knight_black.png" />
     <None Remove="Assets\knight_white.png" />
-    <None Remove="Assets\pown_black.png" />
-    <None Remove="Assets\pown_white.png" />
+    <None Remove="Assets\pawn_black.png" />
+    <None Remove="Assets\pawn_white.png" />
     <None Remove="Assets\queen_black.png" />
     <None Remove="Assets\queen_white.png" />
     <None Remove="Assets\rook_black.png" />
@@ -42,8 +42,8 @@
     <Resource Include="Assets\king_white.png" />
     <Resource Include="Assets\knight_black.png" />
     <Resource Include="Assets\knight_white.png" />
-    <Resource Include="Assets\pown_black.png" />
-    <Resource Include="Assets\pown_white.png" />
+    <Resource Include="Assets\pawn_black.png" />
+    <Resource Include="Assets\pawn_white.png" />
     <Resource Include="Assets\queen_black.png" />
     <Resource Include="Assets\queen_white.png" />
     <Resource Include="Assets\rook_black.png" />
