@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ChessLogic.Moves;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -44,12 +45,34 @@ namespace ChessLogic
             }
             return board[pos].Color != Color;
         }
+
+        private static IEnumerable<Move> PromotionMoves(Position from, Position to)
+        {
+            yield return new PawnPromotion(from, to, PieceType.Knight);
+            yield return new PawnPromotion(from, to, PieceType.Bishop);
+            yield return new PawnPromotion(from, to, PieceType.Rook);
+            yield return new PawnPromotion(from, to, PieceType.Queen);
+        }
+
         private IEnumerable<Move> ForwardMoves(Position from, Board board)
         {
             Position oneMovePosition = from + forward;
             if(CanMoveTo(oneMovePosition, board))
             {
-                yield return new NormalMove(from, oneMovePosition);
+                if(oneMovePosition.Row == 0|| oneMovePosition.Row == 7)
+                {
+                    foreach(Move promMove in PromotionMoves(from, oneMovePosition))
+                    {
+                        yield return promMove;
+                    }
+
+                }
+                else
+                {
+                    yield return new NormalMove(from, oneMovePosition);
+                }
+
+                
                 Position twoMovePos = oneMovePosition + forward;
                 if(!HasMoved && CanMoveTo(twoMovePos, board))
                 {
@@ -64,7 +87,18 @@ namespace ChessLogic
                 Position to = from + forward + dir;
                 if (CanCaptureAt(to, board))
                 {
-                    yield return new NormalMove(from, to);
+                    if (to.Row == 0 || to.Row == 7)
+                    {
+                        foreach (Move promMove in PromotionMoves(from, to))
+                        {
+                            yield return promMove;
+                        }
+
+                    }
+                    else
+                    {
+                        yield return new NormalMove(from, to);
+                    }
 
                 }
             }

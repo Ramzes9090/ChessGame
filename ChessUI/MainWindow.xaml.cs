@@ -9,6 +9,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ChessLogic;
+using ChessLogic.Moves;
 
 namespace ChessUI
 {
@@ -106,9 +107,33 @@ namespace ChessUI
             HideHighlights();
             if(moveCache.TryGetValue(pos, out Move move))
             {
-                HandleMove(move);
+                if (move.Type == MoveType.PawnPromotion)
+                {
+                    HandlePromotion(move.FromPos, move.ToPos);
+                }
+                else
+                {
+                    HandleMove(move);
+                }
+               
             }
         }
+
+        private void HandlePromotion(Position from, Position to) 
+        {
+            pieceImages[to.Row, to.Column].Source = Images.GetImage(gameState.CurrentPlayer, PieceType.Pawn);
+            pieceImages[from.Row, from.Column].Source = null;
+            PromotionMenu promoMenu = new PromotionMenu(gameState.CurrentPlayer);
+            MenuContainer.Content = promoMenu;
+
+            promoMenu.PieceSelected += type =>
+            {
+                MenuContainer.Content = null;
+                Move promoMove = new PawnPromotion(from, to, type);
+                HandleMove(promoMove);
+            };
+        }
+
         private void HandleMove(Move move)
         {
             gameState.MakeMove(move);
