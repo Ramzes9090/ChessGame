@@ -11,6 +11,19 @@ This repository holds the source code for a chess game built in Visual Studio us
 - **Two-player:** Challenge yourself against the AI opponent, ranging from beginner to challenging levels, or compete with friends or family locally on the same machine.
 - **Move validation and highlighting:** The game ensures valid moves are made, highlighting possible destinations for the selected piece. This helps prevent illegal moves and streamlines the gameplay.
 - **Customization options:** Adjust board and piece visuals to your preference, enhancing the experience for individual tastes.
+# Screens:
+
+![image](https://github.com/Ramzes9090/ChessGame/assets/86838822/cae7c9df-4942-40ea-b021-1dd0dc719744)
+Img. 1
+
+![image](https://github.com/Ramzes9090/ChessGame/assets/86838822/da9f597d-bb1a-4b49-8956-09c97c2bc936)
+Img. 2
+
+![image](https://github.com/Ramzes9090/ChessGame/assets/86838822/936840c4-d9c4-4b22-9aec-8d8515c7bcca)
+Img. 3
+
+![image](https://github.com/Ramzes9090/ChessGame/assets/86838822/f0ae9a88-aa32-4c79-9427-d1a6f127ee5c)
+Img. 4
 
 # Getting Started:
 
