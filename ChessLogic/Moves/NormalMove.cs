@@ -17,12 +17,15 @@ namespace ChessLogic
             ToPos = to;
         }
 
-        public override void Execute(Board board)
+        public override bool Execute(Board board)
         {
-            Piece pice = board[FromPos];
-            board[ToPos] = pice;
+            Piece piece = board[FromPos];
+            bool capture = !board.IsEmpty(ToPos);
+            board[ToPos] = piece;
             board[FromPos] = null;
-            pice.HasMoved = true;
+            piece.HasMoved = true;
+
+            return capture || piece.Type == PieceType.Pawn;
         }
     }
 }
