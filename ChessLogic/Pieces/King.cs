@@ -17,7 +17,7 @@ namespace ChessLogic
             Direction.West,
             Direction.East,
             Direction.SouthEast,
-            Direction.SouthEast,
+            Direction.SouthWest,
             Direction.NorthEast,
             Direction.NorthWest
         };
